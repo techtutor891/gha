@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:  # Pass GitHub secret as an environment variable
-      MY_SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
+      MY_SECRET_KEY: ${{ vars.MY_SECRET_KEY }}
 
     steps:
       - name: Checkout repo
