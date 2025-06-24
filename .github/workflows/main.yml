@@ -26,4 +26,4 @@ jobs:
           # pip install -r requirements.txt || true
 
       - name: Run the script
-        run: python print_env.py
+        run: python GHA.py
