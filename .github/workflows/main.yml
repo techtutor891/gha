@@ -1,0 +1,29 @@
+name: Run Python Env Script
+
+on:
+  push:
+    branches: [ main ]  # or any other branch you prefer
+
+jobs:
+  run-env:
+    runs-on: ubuntu-latest
+
+    env:  # Pass GitHub secret as an environment variable
+      MY_SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies (if needed)
+        run: |
+          pip install python-dotenv  # Optional if you use dotenv
+          # pip install -r requirements.txt || true
+
+      - name: Run the script
+        run: python print_env.py
